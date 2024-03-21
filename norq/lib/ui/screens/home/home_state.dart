@@ -18,3 +18,5 @@ class HomePageFailure extends HomeState {
 
   HomePageFailure(this.error);
 }
+
+class AddToCartSuccess extends HomeState {}

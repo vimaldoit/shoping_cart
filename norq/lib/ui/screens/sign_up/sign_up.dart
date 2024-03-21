@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:norq/data/repositories/user_repository.dart';
 import 'package:norq/ui/common_widget/app_loader.dart';
-import 'package:norq/ui/login/login.dart';
-import 'package:norq/ui/login/login_cubit.dart';
-import 'package:norq/ui/sign_up/sign_up_cubit.dart';
+import 'package:norq/ui/screens/login/login.dart';
+import 'package:norq/ui/screens/login/login_cubit.dart';
+import 'package:norq/ui/screens/sign_up/sign_up_cubit.dart';
 import 'package:norq/utils/colors.dart';
 import 'package:norq/utils/style.dart';
 import 'package:norq/utils/validations.dart';
@@ -36,7 +36,7 @@ class _SignUpPageState extends State<SignUpPage> {
         appBar: AppBar(
           backgroundColor: Appcolors.backgroundColor,
           centerTitle: true,
-          title: Text(
+          title: const Text(
             "Sign UP",
             style: TextStyle(
               color: Appcolors.textColor,
@@ -60,13 +60,13 @@ class _SignUpPageState extends State<SignUpPage> {
                           builder: (context) => BlocProvider(
                                 create: (context) =>
                                     LoginCubit(UserRespository()),
-                                child: LoginPage(),
+                                child: const LoginPage(),
                               )));
                 }
               },
               builder: (context, state) {
                 if (state is SignUpLoading) {
-                  return AppLoader();
+                  return const AppLoader();
                 }
                 return Container(
                   height: 100.h,
@@ -135,9 +135,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                 decoration: InputDecoration(
                                     contentPadding: EdgeInsets.zero,
                                     hintText: "Enter password",
-                                    label: Text("Password"),
-                                    prefixIcon:
-                                        Icon(Icons.lock, color: Colors.black),
+                                    label: const Text("Password"),
+                                    prefixIcon: const Icon(Icons.lock,
+                                        color: Colors.black),
                                     suffixIcon: IconButton(
                                       onPressed: () {
                                         setState(() {
@@ -150,11 +150,12 @@ class _SignUpPageState extends State<SignUpPage> {
                                               : Icons.visibility,
                                           color: Appcolors.accentColor),
                                     ),
-                                    errorStyle: TextStyle(color: Colors.red),
+                                    errorStyle:
+                                        const TextStyle(color: Colors.red),
                                     border: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(4.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Appcolors.accentColor,
                                             width: 1)),
                                     hintStyle: TextStyle(
@@ -166,13 +167,13 @@ class _SignUpPageState extends State<SignUpPage> {
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(4.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Appcolors.accentColor,
                                             width: 1)),
                                     enabledBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(4.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Appcolors.accentColor,
                                             width: 1)))),
                             SizedBox(
@@ -193,9 +194,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                 decoration: InputDecoration(
                                     contentPadding: EdgeInsets.zero,
                                     hintText: "Confirm password",
-                                    label: Text("Confirm Password"),
-                                    prefixIcon:
-                                        Icon(Icons.lock, color: Colors.black),
+                                    label: const Text("Confirm Password"),
+                                    prefixIcon: const Icon(Icons.lock,
+                                        color: Colors.black),
                                     suffixIcon: IconButton(
                                       onPressed: () {
                                         setState(() {
@@ -209,11 +210,12 @@ class _SignUpPageState extends State<SignUpPage> {
                                               : Icons.visibility,
                                           color: Appcolors.accentColor),
                                     ),
-                                    errorStyle: TextStyle(color: Colors.red),
+                                    errorStyle:
+                                        const TextStyle(color: Colors.red),
                                     border: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(4.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Appcolors.accentColor,
                                             width: 1)),
                                     hintStyle: TextStyle(
@@ -225,13 +227,13 @@ class _SignUpPageState extends State<SignUpPage> {
                                     focusedBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(4.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Appcolors.accentColor,
                                             width: 1)),
                                     enabledBorder: OutlineInputBorder(
                                         borderRadius:
                                             BorderRadius.circular(4.0),
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                             color: Appcolors.accentColor,
                                             width: 1)))),
                             SizedBox(
@@ -249,7 +251,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                           RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(18.0),
-                                              side: BorderSide(
+                                              side: const BorderSide(
                                                   color:
                                                       Appcolors.accentColor)))),
                                   onPressed: () {
@@ -272,7 +274,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             SizedBox(
                               height: 3.h,
                             ),
-                            Row(
+                            const Row(
                               children: [
                                 Expanded(child: Divider()),
                                 Text("OR"),
@@ -294,7 +296,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                           RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(18.0),
-                                              side: BorderSide(
+                                              side: const BorderSide(
                                                   color:
                                                       Appcolors.accentColor)))),
                                   onPressed: () {
@@ -304,7 +306,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                           builder: (context) => BlocProvider(
                                             create: (context) =>
                                                 LoginCubit(UserRespository()),
-                                            child: LoginPage(),
+                                            child: const LoginPage(),
                                           ),
                                         ));
                                   },

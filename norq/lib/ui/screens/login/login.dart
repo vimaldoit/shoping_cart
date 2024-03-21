@@ -4,11 +4,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:norq/data/repositories/user_repository.dart';
 import 'package:norq/ui/common_widget/app_loader.dart';
-import 'package:norq/ui/home/home.dart';
-import 'package:norq/ui/home/home_cubit.dart';
-import 'package:norq/ui/login/login_cubit.dart';
-import 'package:norq/ui/sign_up/sign_up.dart';
-import 'package:norq/ui/sign_up/sign_up_cubit.dart';
+import 'package:norq/ui/screens/home/home.dart';
+import 'package:norq/ui/screens/home/home_cubit.dart';
+import 'package:norq/ui/screens/login/login_cubit.dart';
+import 'package:norq/ui/screens/sign_up/sign_up.dart';
+import 'package:norq/ui/screens/sign_up/sign_up_cubit.dart';
 import 'package:norq/utils/colors.dart';
 import 'package:norq/utils/style.dart';
 import 'package:norq/utils/validations.dart';
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                 MaterialPageRoute(
                   builder: (context) => BlocProvider(
                     create: (context) => HomeCubit(UserRespository()),
-                    child: HomePage(),
+                    child: const HomePage(),
                   ),
                 ),
                 (route) => false);
@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
         },
         builder: (context, state) {
           if (state is LoginLoading) {
-            return AppLoader();
+            return const AppLoader();
           }
           return Container(
             height: 100.h,
@@ -94,8 +94,9 @@ class _LoginPageState extends State<LoginPage> {
                         decoration: InputDecoration(
                             contentPadding: EdgeInsets.zero,
                             hintText: "Enter password",
-                            label: Text("Password"),
-                            prefixIcon: Icon(Icons.lock, color: Colors.black),
+                            label: const Text("Password"),
+                            prefixIcon:
+                                const Icon(Icons.lock, color: Colors.black),
                             suffixIcon: IconButton(
                               onPressed: () {
                                 setState(() {
@@ -108,10 +109,10 @@ class _LoginPageState extends State<LoginPage> {
                                       : Icons.visibility,
                                   color: Appcolors.accentColor),
                             ),
-                            errorStyle: TextStyle(color: Colors.red),
+                            errorStyle: const TextStyle(color: Colors.red),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(4.0),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Appcolors.accentColor, width: 1)),
                             hintStyle: TextStyle(
                                 color: Appcolors.hintColor,
@@ -121,11 +122,11 @@ class _LoginPageState extends State<LoginPage> {
                                 fontStyle: FontStyle.normal),
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(4.0),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Appcolors.accentColor, width: 1)),
                             enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(4.0),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Appcolors.accentColor, width: 1)))),
                     SizedBox(
                       height: 5.h,
@@ -140,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                                       RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(18.0),
-                                      side: BorderSide(
+                                      side: const BorderSide(
                                           color: Appcolors.accentColor)))),
                           onPressed: () {
                             if (_loginformKey.currentState!.validate()) {
@@ -159,7 +160,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 3.h,
                     ),
-                    Row(
+                    const Row(
                       children: [
                         Expanded(child: Divider()),
                         Text("OR"),
@@ -179,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                                       RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(18.0),
-                                      side: BorderSide(
+                                      side: const BorderSide(
                                           color: Appcolors.accentColor)))),
                           onPressed: () {
                             Navigator.pushReplacement(
@@ -188,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
                                   builder: (context) => BlocProvider(
                                     create: (context) =>
                                         SignUpCubit(UserRespository()),
-                                    child: SignUpPage(),
+                                    child: const SignUpPage(),
                                   ),
                                 ));
                           },
