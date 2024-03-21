@@ -40,6 +40,9 @@ dependencies:
   sizer: 
   firebase_core: 
   firebase_auth:
+  cloud_firestore: 
+  fluttertoast: ^8.2.4
+  http: 
 
 
 

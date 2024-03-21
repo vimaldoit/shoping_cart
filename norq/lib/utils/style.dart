@@ -22,7 +22,7 @@ class AppStyle {
           borderSide: BorderSide(color: Appcolors.textColor, width: 1)),
       hintStyle: TextStyle(
           color: Appcolors.hintColor,
-          fontSize: 16.sp,
+          fontSize: 12.sp,
           fontWeight: FontWeight.w400,
           textBaseline: TextBaseline.alphabetic,
           fontStyle: FontStyle.normal),

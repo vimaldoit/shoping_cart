@@ -1,9 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:norq/data/repositories/user_repository.dart';
+import 'package:norq/ui/home/home.dart';
+import 'package:norq/ui/home/home_cubit.dart';
+import 'package:norq/ui/login/login.dart';
+import 'package:norq/ui/login/login_cubit.dart';
 import 'package:norq/ui/sign_up/sign_up.dart';
+import 'package:norq/ui/sign_up/sign_up_cubit.dart';
 import 'package:sizer/sizer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
 
   runApp(const MyApp());
 }
@@ -16,6 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(builder: (context, orientation, deviceType) {
       return MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
             // This is the theme of your application.
@@ -36,7 +46,10 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
             useMaterial3: true,
           ),
-          home: SignUpPage());
+          home: BlocProvider(
+            create: (context) => HomeCubit(UserRespository()),
+            child: HomePage(),
+          ));
     });
   }
 }
